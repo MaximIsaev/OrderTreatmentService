@@ -1,12 +1,12 @@
 package train_travell.document;
 
-import train_travell.passenger.Human;
 import train_travell.cash.Money;
+import train_travell.passenger.Human;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
+
 
 
 public class Ticket {
@@ -23,12 +23,20 @@ public class Ticket {
     private boolean paid = false;
     private Human passenger;
 
+    public Ticket(String fromTown, String toTown, Calendar startTime, Calendar endTime, Money cost) {
+        this.fromTown = fromTown;
+        this.toTown = toTown;
+        this.startTime = startTime;
+        this.endTime = endTime;
+        Cost = cost;
+    }
 
     public long reserve(Human passenger) {
 
         this.passenger = passenger;
         id = Math.abs((long) (Math.random() * 100000));
         reserved = true;
+
 //        Ticket.tickets.add()
         return id;
 
@@ -71,6 +79,42 @@ public class Ticket {
             }
         }
         return false;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public String getFromTown() {
+        return fromTown;
+    }
+
+    public String getToTown() {
+        return toTown;
+    }
+
+    public Calendar getStartTime() {
+        return startTime;
+    }
+
+    public Calendar getEndTime() {
+        return endTime;
+    }
+
+    public Money getCost() {
+        return Cost;
+    }
+
+    public boolean isReserved() {
+        return reserved;
+    }
+
+    public boolean isPaid() {
+        return paid;
+    }
+
+    public Human getPassenger() {
+        return passenger;
     }
 
 
